@@ -2,49 +2,113 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101512">
-<title>DEAD HORIZON: ARCHIVE</title>
+<meta name="theme-color" content="#101512"><title>DEAD HORIZON: ARCHIVE</title>
 <style>
 :root{color-scheme:dark;--bg:#0d120f;--panel:#151e18;--line:#2a382e;--text:#e6ece5;--muted:#87958a;--green:#a8c7a8}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#243329 0,transparent 55%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
-header{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,20px);background:#0d120fe8}
-.brand{font-weight:800;letter-spacing:.13em;font-size:13px}.brand small{display:block;color:var(--muted);font-size:9px}
-.status,.eyebrow,footer{font-size:10px;letter-spacing:.16em;color:var(--muted)}.status:before{content:"";display:inline-block;width:7px;height:7px;background:#8cbd8c;border-radius:50%;margin-right:8px}
-main{max-width:1120px;margin:auto;padding:0 24px}.hero{padding:70px 0 42px;border-bottom:1px solid var(--line)}
-h1{font-size:clamp(34px,6vw,65px);letter-spacing:-.055em;line-height:1.05;margin:16px 0}h1 span{color:#8ca58d}.hero p,.muted{color:#a4b0a5;max-width:620px}
-.head{display:flex;justify-content:space-between;align-items:end;margin:40px 0 20px}h2{font-size:24px;margin:4px 0}.count{text-align:right}.count b{display:block;color:var(--green);font-size:28px}
+header{padding:16px max(5vw,20px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.13em;font-size:13px}.brand small{display:block;color:var(--muted);font-size:9px}
+main{max-width:1120px;margin:auto;padding:0 24px}.eyebrow,footer{font-size:10px;letter-spacing:.16em;color:var(--muted)}.hero{padding:55px 0 35px;border-bottom:1px solid var(--line)}h1{font-size:clamp(34px,6vw,65px);letter-spacing:-.055em;line-height:1.05;margin:16px 0}h1 span{color:#8ca58d}.muted,.hero p{color:#a4b0a5;max-width:650px}
+.authbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.authbar input{width:160px}.authnote{font-size:11px;color:var(--muted);max-width:300px}
+input,textarea,select{font:inherit;color:var(--text);background:#0c120e;border:1px solid var(--line);padding:10px;min-width:0}.primary,.secondary{padding:10px 14px;border:1px solid #8eaa90;background:#a8c7a8;color:#101710;font-size:10px;font-weight:800;letter-spacing:.1em;cursor:pointer}.secondary{background:transparent;color:var(--green)}
+.head{display:flex;justify-content:space-between;align-items:end;margin:36px 0 20px}h2{font-size:24px;margin:4px 0}.count{text-align:right}.count b{display:block;color:var(--green);font-size:28px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:22px}.stat{padding:16px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat span{font-size:10px;letter-spacing:.13em;color:var(--muted)}.stat b{display:block;font-size:24px}
-.workspace{display:grid;grid-template-columns:205px 1fr;border:1px solid var(--line);background:#101713b8}.side{padding:18px 12px;border-right:1px solid var(--line)}button{cursor:pointer;font:inherit}.nav{display:block;width:100%;text-align:left;padding:10px;border:0;background:transparent;color:#aeb9ae;font-size:13px}.nav.active,.nav:hover{background:#202d23;color:white}
-.content{padding:16px}.toolbar{display:flex;gap:10px;margin-bottom:15px}input,textarea,select{font:inherit;color:var(--text);background:#0c120e;border:1px solid var(--line);padding:10px;min-width:0}#search{flex:1}.primary,.secondary{padding:10px 14px;border:1px solid #8eaa90;background:#a8c7a8;color:#101710;font-size:10px;font-weight:800;letter-spacing:.1em}.secondary{background:transparent;color:var(--green)}
-.record{display:flex;justify-content:space-between;gap:12px;padding:14px;border:1px solid var(--line);background:var(--panel);margin:8px 0}.record h3{font-size:15px;margin:3px 0}.record p{font-size:12px;color:var(--muted);margin:0}.tag{font-size:9px;letter-spacing:.12em;color:var(--green);text-transform:uppercase}.actions{display:flex;gap:6px;align-items:center}.mini{background:transparent;border:1px solid var(--line);color:#b5c2b5;padding:5px 8px;font-size:11px}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
-.territories{padding:45px 0 60px;border-top:1px solid var(--line);margin-top:42px}.territory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px}.territory-grid div{padding:12px 0;border-bottom:1px solid var(--line);font-size:10px;color:var(--muted)}.territory-grid b{font-size:13px;color:#d2ddd1;margin-left:12px}
-footer{border-top:1px solid var(--line);padding:22px 5vw;display:flex;justify-content:space-between}
+.workspace{display:grid;grid-template-columns:205px 1fr;border:1px solid var(--line);background:#101713b8}.side{padding:18px 12px;border-right:1px solid var(--line)}.nav{display:block;width:100%;text-align:left;padding:10px;border:0;background:transparent;color:#aeb9ae;font-size:13px;cursor:pointer}.nav.active,.nav:hover{background:#202d23;color:white}
+.content{padding:16px}.toolbar{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap}.toolbar #search{flex:1;min-width:180px}.record{display:flex;justify-content:space-between;gap:12px;padding:14px;border:1px solid var(--line);background:var(--panel);margin:8px 0}.record h3{font-size:15px;margin:3px 0}.record p{font-size:12px;color:var(--muted);margin:0}.tag{font-size:9px;letter-spacing:.12em;color:var(--green);text-transform:uppercase}.actions{display:flex;gap:6px;align-items:center}.mini{background:transparent;border:1px solid var(--line);color:#b5c2b5;padding:5px 8px;font-size:11px;cursor:pointer}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
+.territories{padding:42px 0 55px;border-top:1px solid var(--line);margin-top:42px}.territory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px}.territory-grid div{padding:12px 0;border-bottom:1px solid var(--line);font-size:10px;color:var(--muted)}.territory-grid b{font-size:13px;color:#d2ddd1;margin-left:12px}
+footer{border-top:1px solid var(--line);padding:22px 5vw;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 dialog{width:min(500px,calc(100% - 24px));background:#121a15;color:var(--text);border:1px solid #536a56;padding:24px}dialog::backdrop{background:#000b}dialog label{display:block;margin:12px 0;font-size:12px;color:#aab7ab}dialog input,dialog textarea,dialog select{display:block;width:100%;margin-top:5px}.dlg-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
-@media(max-width:680px){header{padding:0 15px}.status{display:none}main{padding:0 15px}.hero{padding:50px 0 30px}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.workspace{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(2,1fr);border-right:0;border-bottom:1px solid var(--line)}.side .eyebrow{grid-column:1/-1}.toolbar{flex-direction:column}.territory-grid{grid-template-columns:1fr}footer{flex-wrap:wrap;gap:10px}}
-</style></head>
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column;padding:15px}.authbar{width:100%}.authbar input{flex:1;min-width:125px}.authnote{max-width:none;width:100%}main{padding:0 15px}.hero{padding:42px 0 28px}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.workspace{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(2,1fr);border-right:0;border-bottom:1px solid var(--line)}.side .eyebrow{grid-column:1/-1}.territory-grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
-<header><div class="brand">DEAD HORIZON<small>OFFICIAL DIGITAL ARCHIVE</small></div><div class="status">ARCHIVE SYSTEM ONLINE</div></header>
+<header><div class="brand">DEAD HORIZON<small>OFFICIAL DIGITAL ARCHIVE</small></div><div class="authbar" id="authbar"></div></header>
 <main>
-<section class="hero"><div class="eyebrow">GREYHAVEN // SURVIVOR DATABASE</div><h1>DEAD HORIZON<span>: ARCHIVE</span></h1><p>Цифровой реестр мира после конца света. Персонажи, группировки, места и события — в одном архиве.</p></section>
+<section class="hero"><div class="eyebrow">GREYHAVEN // SURVIVOR DATABASE</div><h1>DEAD HORIZON<span>: ARCHIVE</span></h1><p>Цифровой реестр мира после конца света. Персонажи, группировки, места и события — в одном общем архиве.</p></section>
 <div class="head"><div><div class="eyebrow">DATABASE OVERVIEW</div><h2>РЕЕСТР</h2></div><div class="count"><b id="total">0</b><span class="eyebrow">ЗАПИСЕЙ В АРХИВЕ</span></div></div>
 <div class="stats"><div class="stat"><span>ПЕРСОНАЖИ</span><b id="c1">0</b></div><div class="stat"><span>ГРУППИРОВКИ</span><b id="c2">0</b></div><div class="stat"><span>ЛОКАЦИИ</span><b id="c3">0</b></div><div class="stat"><span>СОБЫТИЯ</span><b id="c4">0</b></div></div>
 <div class="workspace"><aside class="side"><div class="eyebrow">РАЗДЕЛЫ АРХИВА</div><button class="nav active" data-filter="all">◈ Все записи</button><button class="nav" data-filter="character">♙ Персонажи</button><button class="nav" data-filter="faction">⚑ Группировки</button><button class="nav" data-filter="location">⌖ Локации</button><button class="nav" data-filter="event">◷ События</button></aside>
-<section class="content"><div class="toolbar"><input id="search" placeholder="Поиск по архиву..."><button class="primary" id="add">＋ ДОБАВИТЬ</button><button class="secondary" id="export">ЭКСПОРТ</button></div><div id="list"></div></section></div>
+<section class="content"><div class="toolbar"><input id="search" placeholder="Поиск по архиву..."><button class="primary" id="add">＋ ДОБАВИТЬ</button><button class="secondary" id="export">ЭКСПОРТ</button><button class="secondary" id="refresh">ОБНОВИТЬ</button></div><div id="list"><div class="empty">Подключаем архив...</div></div></section></div>
 <section class="territories"><div class="eyebrow">CANONICAL CITY INDEX</div><h2>ТЕРРИТОРИИ ГРЕЙХЕЙВЕНА</h2><p class="muted">Семь территорий города. География и границы определяются утверждённой канонической картой проекта.</p><div class="territory-grid"><div>01 <b>Северо-Западный Контур</b></div><div>02 <b>Северное Плато</b></div><div>03 <b>Восточный Берег</b></div><div>04 <b>Западный Район</b></div><div>05 <b>Центральный Округ</b></div><div>06 <b>Юго-Западный Сектор</b></div><div>07 <b>Южный Порт</b></div></div></section>
-</main><footer><span>DEAD HORIZON: ARCHIVE</span><span>BUILD 0.1.0</span><span>GREYHAVEN</span></footer>
+</main>
+<footer><span>DEAD HORIZON: ARCHIVE</span><span>BUILD 0.2.0</span><span>GREYHAVEN</span></footer>
 <dialog id="dlg"><form id="form"><div class="eyebrow">DATABASE ENTRY</div><h2 id="dlgtitle">НОВАЯ ЗАПИСЬ</h2><input type="hidden" id="rid"><label>Тип<select id="type"><option value="character">Персонаж</option><option value="faction">Группировка</option><option value="location">Локация</option><option value="event">Событие</option></select></label><label>Название<input id="name" required maxlength="90"></label><label>Описание<textarea id="desc" rows="4" maxlength="1200"></textarea></label><div class="dlg-actions"><button type="button" class="secondary" id="cancel">ОТМЕНА</button><button class="primary">СОХРАНИТЬ</button></div></form></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.102.0/dist/umd/supabase.js"></script>
 <script>
-const key='dead-horizon-archive-v1',labels={character:'Персонаж',faction:'Группировка',location:'Локация',event:'Событие'};
-const seed=['Северо-Западный Контур','Северное Плато','Восточный Берег','Западный Район','Центральный Округ','Юго-Западный Сектор','Южный Порт'].map((n,i)=>({id:'area-'+i,type:'location',name:n,description:'Одна из семи канонических территорий Грейхейвена.'}));
-let data;try{data=JSON.parse(localStorage.getItem(key))||seed}catch{data=seed}let filter='all';
+const SUPABASE_URL='https://jnnaxhdywudsqgpuzgjv.supabase.co';
+const SUPABASE_KEY='sb_publishable_wfSpjrC-5KN4T6t60bKCtA_W9mlu6MM';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const labels={character:'Персонаж',faction:'Группировка',location:'Локация',event:'Событие'};
+const tables={character:'characters',faction:'factions',location:'locations',event:'events'};
+let records=[],filter='all',user=null,isAdmin=false;
 const $=id=>document.getElementById(id),esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function save(){localStorage.setItem(key,JSON.stringify(data));render()}
-function render(){let q=$('search').value.toLowerCase();let rows=data.filter(x=>(filter==='all'||x.type===filter)&&(x.name+' '+x.description).toLowerCase().includes(q));$('list').innerHTML=rows.length?rows.map(x=>`<article class="record"><div><span class="tag">${labels[x.type]}</span><h3>${esc(x.name)}</h3><p>${esc(x.description||'Описание отсутствует')}</p></div><div class="actions"><button class="mini" data-edit="${x.id}">Изменить</button><button class="mini" data-del="${x.id}">×</button></div></article>`).join(''):'<div class="empty">Записей не найдено. Добавьте новую запись или измените поиск.</div>';$('total').textContent=data.length;[['character','c1'],['faction','c2'],['location','c3'],['event','c4']].forEach(([t,id])=>$(id).textContent=data.filter(x=>x.type===t).length);document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter))}
-function open(x){$('form').reset();$('rid').value=x?.id||'';$('dlgtitle').textContent=x?'РЕДАКТИРОВАТЬ ЗАПИСЬ':'НОВАЯ ЗАПИСЬ';if(x){$('type').value=x.type;$('name').value=x.name;$('desc').value=x.description||''}$('dlg').showModal()}
-$('add').onclick=()=>open();$('cancel').onclick=()=>$('dlg').close();$('search').oninput=render;
-$('form').onsubmit=e=>{e.preventDefault();let id=$('rid').value,item={id:id||'dh-'+Date.now(),type:$('type').value,name:$('name').value.trim(),description:$('desc').value.trim()};if(id)data=data.map(x=>x.id===id?item:x);else data.unshift(item);$('dlg').close();save()};
-document.querySelector('.content').onclick=e=>{let a=e.target.closest('[data-edit]'),d=e.target.closest('[data-del]');if(a)open(data.find(x=>x.id===a.dataset.edit));if(d){let x=data.find(x=>x.id===d.dataset.del);if(x&&confirm('Удалить запись «'+x.name+'»?')){data=data.filter(v=>v.id!==x.id);save()}}};
+function note(s){const n=$('authnote');if(n)n.textContent=s}
+async function loadUser(){
+ const {data}=await db.auth.getSession();user=data.session?.user||null;isAdmin=false;
+ if(user){const {data:roles}=await db.from('user_roles').select('role').eq('user_id',user.id);isAdmin=(roles||[]).some(x=>x.role==='admin')}
+ $('authbar').innerHTML=user?
+  '<span class="authnote" id="authnote">ВЫ ВОШЛИ: '+esc(user.email)+(isAdmin?' · ADMIN':'')+'</span><button class="secondary" id="logout">ВЫЙТИ</button>':
+  '<input id="email" type="email" placeholder="Электронная почта" autocomplete="email"><input id="password" type="password" placeholder="Пароль" autocomplete="current-password"><button class="secondary" id="login">ВОЙТИ</button><button class="primary" id="signup">РЕГИСТРАЦИЯ</button><span class="authnote" id="authnote">Войдите или создайте аккаунт, чтобы добавлять записи.</span>';
+ if(user)$('logout').onclick=async()=>{await db.auth.signOut();await loadUser();await loadRecords()};
+ else{$('login').onclick=signIn;$('signup').onclick=signUp}
+ $('add').disabled=!user;$('add').style.opacity=user?'1':'.45';
+}
+async function signUp(){
+ const email=$('email').value.trim(),password=$('password').value;
+ if(!email||password.length<8){note('Укажите почту и пароль не короче 8 символов.');return}
+ const {data,error}=await db.auth.signUp({email,password});
+ if(error){note(error.message);return}
+ if(data.session)note('Аккаунт создан. Вы вошли в архив.');
+ else note('Письмо подтверждения отправлено на почту. Подтвердите адрес, затем войдите.');
+ await loadUser();await loadRecords();
+}
+async function signIn(){
+ const email=$('email').value.trim(),password=$('password').value;
+ const {error}=await db.auth.signInWithPassword({email,password});
+ if(error){note(error.message);return}
+ await loadUser();await loadRecords();
+}
+async function loadRecords(){
+ $('list').innerHTML='<div class="empty">Загружаем общий архив...</div>';
+ const all=[];
+ for(const [type,table] of Object.entries(tables)){
+  const {data,error}=await db.from(table).select('id,name,description,created_by,created_at').order('created_at',{ascending:true});
+  if(error){$('list').innerHTML='<div class="empty">Ошибка загрузки: '+esc(error.message)+'</div>';return}
+  (data||[]).forEach(x=>all.push({...x,type}));
+ }
+ records=all;render();
+}
+function render(){
+ const q=$('search').value.toLowerCase(),rows=records.filter(x=>(filter==='all'||x.type===filter)&&(x.name+' '+x.description).toLowerCase().includes(q));
+ $('list').innerHTML=rows.length?rows.map(x=>{
+  const canEdit=!!user&&(isAdmin||x.created_by===user.id);
+  return '<article class="record"><div><span class="tag">'+labels[x.type]+'</span><h3>'+esc(x.name)+'</h3><p>'+esc(x.description||'Описание отсутствует')+'</p></div><div class="actions">'+(canEdit?'<button class="mini" data-edit="'+x.id+'" data-type="'+x.type+'">Изменить</button><button class="mini" data-del="'+x.id+'" data-type="'+x.type+'">×</button>':'')+'</div></article>';
+ }).join(''):'<div class="empty">Записей не найдено. Войдите, чтобы добавить запись в общий архив.</div>';
+ $('total').textContent=records.length;
+ [['character','c1'],['faction','c2'],['location','c3'],['event','c4']].forEach(([t,id])=>$(id).textContent=records.filter(x=>x.type===t).length);
+ document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+}
+function openRecord(x){
+ $('form').reset();$('rid').value=x?.id||'';$('dlgtitle').textContent=x?'РЕДАКТИРОВАТЬ ЗАПИСЬ':'НОВАЯ ЗАПИСЬ';
+ $('type').disabled=!!x;
+ if(x){$('type').value=x.type;$('name').value=x.name;$('desc').value=x.description||''}
+ $('dlg').showModal();
+}
+$('add').onclick=()=>{if(user)openRecord()};$('cancel').onclick=()=>$('dlg').close();$('search').oninput=render;
+$('form').onsubmit=async e=>{
+ e.preventDefault();if(!user){alert('Сначала войдите в аккаунт.');return}
+ const id=$('rid').value,type=$('type').value,table=tables[type],payload={name:$('name').value.trim(),description:$('desc').value.trim()};
+ const result=id?await db.from(table).update(payload).eq('id',id):await db.from(table).insert({...payload,created_by:user.id});
+ if(result.error){alert('Не удалось сохранить: '+result.error.message);return}
+ $('dlg').close();await loadRecords();
+};
+document.querySelector('.content').onclick=async e=>{
+ const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');
+ if(edit){const x=records.find(v=>v.id===edit.dataset.edit&&v.type===edit.dataset.type);if(x)openRecord(x)}
+ if(del){const x=records.find(v=>v.id===del.dataset.del&&v.type===del.dataset.type);if(x&&confirm('Удалить запись «'+x.name+'»?')){const {error}=await db.from(tables[x.type]).delete().eq('id',x.id);if(error)alert('Не удалось удалить: '+error.message);else await loadRecords()}}
+};
 document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render()});
-$('export').onclick=()=>{let blob=new Blob([JSON.stringify({project:'DEAD HORIZON: ARCHIVE',records:data},null,2)],{type:'application/json'}),a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='dead-horizon-archive.json';a.click();URL.revokeObjectURL(url)};
-render();
+$('refresh').onclick=loadRecords;
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify({project:'DEAD HORIZON: ARCHIVE',records},null,2)],{type:'application/json'}),a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='dead-horizon-archive.json';a.click();URL.revokeObjectURL(url)};
+db.auth.onAuthStateChange(()=>{queueMicrotask(async()=>{await loadUser();await loadRecords()})});
+(async()=>{await loadUser();await loadRecords()})();
 </script></body></html>
